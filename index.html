@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Image with Text</title>
+  <style>
+    .text {
+      position: absolute;
+      top: 1760px; /* Adjust the value to position vertically */
+      left: 640px; /* Adjust the value to position horizontally */
+      color: white;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 60px;
+    }
+    
+    .button-container {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .button {
+      color: white;
+      background-color: black;
+      border: none;
+      padding: 20px 40px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 55px;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="position: relative;">
+    <img src="fs.jpg" alt="Your Image">
+    <div class="text" id="text">0</div>
+  </div>
+  <div class="button-container">
+    <button class="button" onclick="increaseText()">+</button>
+  </div>
+
+  <script>
+    var textElement = document.getElementById('text');
+    var number = localStorage.getItem('count') || 0;
+
+    textElement.innerText = number;
+
+    function increaseText() {
+      number++;
+      textElement.innerText = number;
+      localStorage.setItem('count', number);
+    }
+  </script>
+</body>
+
+</html>
